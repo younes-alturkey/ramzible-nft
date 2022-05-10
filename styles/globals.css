@@ -14,6 +14,7 @@
     }
 
     .webgl {
+        z-index: 9999;
         outline: none;
         border: 1px solid red;
         border-radius: 40px;
@@ -24,5 +25,8 @@
         height: 600px;
         border: 1px solid red;
         border-radius: 40px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50% 50%;
     }
 }
