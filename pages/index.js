@@ -21,10 +21,12 @@ export default function Home() {
                 <img
                     src={nftImg}
                     className={`rounded-3xl ${mode !== 'default' && 'hidden'}`}
+                    draggable={false}
                 />
                 <img
                     src={qrImg}
                     className={`rounded-3xl ${mode !== 'qrCode' && 'hidden'}`}
+                    draggable={false}
                 />
                 <canvas
                     className={`webgl z-10 rounded-3xl ${
