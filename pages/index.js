@@ -138,7 +138,7 @@ export default function Home() {
                         <a
                             href="https://younes.ninja"
                             target="_blank"
-                            rel="noopener"
+                            rel="noreferrer"
                         >
                             <FaLink size={24} />
                         </a>
