@@ -13,7 +13,6 @@ export default function Home() {
 
     useEffect(() => {
         setExperience(new Experience(document.querySelector('canvas.webgl')))
-        console.log('rendered')
     }, [])
 
     return (
