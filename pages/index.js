@@ -6,7 +6,7 @@ import { GiHand } from 'react-icons/gi'
 
 export default function Home() {
     const [experience, setExperience] = useState(null)
-    const [animation, setAnimation] = useState('idle')
+    const [rotating, setRotating] = useState(false)
     const [mode, setMode] = useState('default')
     const nftImg = 'images/jeddah-season-banner.png'
     const qrImg = 'images/random-qr.png'
@@ -20,16 +20,17 @@ export default function Home() {
         <div className="h-screen w-screen flex justify-center items-center gap-4 relative">
             <div className="relative p-3 select-none">
                 <img
-                    src={qrImg}
-                    className={`rounded-3xl ${mode !== 'qrCode' && 'hidden'}`}
-                />
-                <img
                     src={nftImg}
                     className={`rounded-3xl ${mode !== 'default' && 'hidden'}`}
                 />
-
+                <img
+                    src={qrImg}
+                    className={`rounded-3xl ${mode !== 'qrCode' && 'hidden'}`}
+                />
                 <canvas
-                    className={`webgl z-10 ${mode !== 'soul' && 'hidden'}`}
+                    className={`webgl z-10 rounded-3xl ${
+                        mode !== 'soul' && 'hidden'
+                    }`}
                 ></canvas>
                 <div className="absolute bottom-8 right-8 text-white flex flex-row-reverse justify-center items-center gap-4">
                     <div
@@ -46,7 +47,7 @@ export default function Home() {
                     </div>
                     <div
                         className={`p-3 rounded-full cursor-pointer bg-darkish hover:bg-opacity-70 transition-colors duration-200 ${
-                            mode == 'soul' && ' text-red-500'
+                            mode == 'soul' && 'text-red-500'
                         }`}
                         onClick={() => {
                             mode === 'soul'
@@ -60,12 +61,13 @@ export default function Home() {
                 <div
                     className={`absolute bottom-24 right-8 p-3 rounded-full cursor-pointer bg-darkish text-white hover:bg-opacity-70 transition-colors duration-200 ${
                         mode !== 'soul' && 'hidden'
-                    }`}
+                    } ${rotating && 'text-red-500'}`}
                     onClick={() => {
-                        experience.world.fox.animation.play(animation)
-                        animation === 'idle'
-                            ? setAnimation('running')
-                            : setAnimation('idle')
+                        if (!rotating) {
+                            setRotating(true)
+                            experience.world.shiranui.rotate()
+                            setTimeout(() => setRotating(false), 990)
+                        }
                     }}
                 >
                     <GiHand size={28} />
@@ -75,7 +77,7 @@ export default function Home() {
                         JED
                     </div>
                 </div>
-                <div className="absolute top-10 right-3 bg-red-500 text-white py-3 px-6 shadow text-xl select-none">
+                <div className="absolute top-10 right-3 bg-red-500 text-white py-3 px-6 shadow text-xl select-none rounded-sm">
                     <p>2022</p>
                 </div>
             </div>

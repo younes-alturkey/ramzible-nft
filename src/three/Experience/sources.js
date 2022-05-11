@@ -26,4 +26,9 @@ export default [
         type: 'gltfModel',
         path: 'three/models/Fox/glTF/Fox.gltf',
     },
+    {
+        name: 'shiranui',
+        type: 'gltfModel',
+        path: 'three/models/shiranui.glb',
+    },
 ]
