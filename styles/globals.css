@@ -13,6 +13,23 @@
         background-color: #000000;
     }
 
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        @apply w-1;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-red-500 rounded-2xl;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-red-300;
+    }
+
     .webgl {
         z-index: 9999;
         outline: none;
